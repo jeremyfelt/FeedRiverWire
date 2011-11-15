@@ -17,7 +17,7 @@ function get_recent_river_items( $river_source_ids = '1,2,3,4', $limit = 20 ){
         ORDER BY item_id DESC
         LIMIT $limit" );
     $get_recent_items->execute();
-    $recent_items = $get_most_recent_items->fetchAll( PDO::FETCH_CLASS, 'RiverItem' );
+    $recent_items = $get_recent_items->fetchAll( PDO::FETCH_CLASS, 'RiverItem' );
     $get_recent_items = NULL;
     $db = NULL;
     return $recent_items;
