@@ -7,6 +7,7 @@ $_SESSION[ 'last_item_id' ] = NULL;
 if ( $_SESSION[ 'river_sources' ] )
     $river_source_ids = $_SESSION[ 'river_sources' ];
 
+require_once( dirname( __FILE__ ) . '/includes/config.php' );
 require_once( dirname( __FILE__ ) . '/includes/Database.php' );
 require_once( dirname( __FILE__ ) . '/includes/RiverItem.php' );
 require_once( dirname( __FILE__ ) . '/includes/functions.php' );
