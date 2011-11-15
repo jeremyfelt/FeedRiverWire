@@ -96,5 +96,7 @@ function loadwires(){
 }
 setInterval(loadwires,10000);
 </script>
+<?php if ( $google_analytics_id ) include 'google_analytics.php'; ?>
+<?php if ( $github_fork_display ) include 'forkme_code.php'; ?>
 </body>
 </html>
