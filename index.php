@@ -11,7 +11,7 @@ require_once( dirname( __FILE__ ) . '/includes/Database.php' );
 require_once( dirname( __FILE__ ) . '/includes/RiverItem.php' );
 require_once( dirname( __FILE__ ) . '/includes/functions.php' );
 
-$recent_river_items = get_most_recent_items( $river_source_ids, 20 );
+$recent_river_items = get_recent_river_items( $river_source_ids, 20 );
 
 $last_item_id = 1;
 $build_item_display = '';
