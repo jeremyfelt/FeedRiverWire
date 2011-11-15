@@ -2,73 +2,64 @@
 
 session_start();
 $_SESSION[ 'last_item_id' ] = NULL;
-//echo $_SESSION['river_sources']; die();
-if ( ! $_SESSION[ 'river_sources' ] ) {
-    $_SESSION[ 'river_sources' ] = "1,2,3,4";
-}
 
-$river_source_ids = $_SESSION[ 'river_sources' ];
+/*  This is a hacky way to determine what sources we're looking at. */
+if ( $_SESSION[ 'river_sources' ] )
+    $river_source_ids = $_SESSION[ 'river_sources' ];
 
-include 'includes/Database.php';
+require_once( dirname( __FILE__ ) . '/includes/Database.php' );
+require_once( dirname( __FILE__ ) . '/includes/RiverItem.php' );
+require_once( dirname( __FILE__ ) . '/includes/functions.php' );
 
-$db = db_connect();
-
-$get_most_recent_items = $db->prepare( "SELECT item_id, river_source_id, item_url, item_title, item_excerpt, body, publish_date,
-    feed_section, feed_title
-    FROM river_items
-    WHERE river_source_id IN ( $river_source_ids )
-    ORDER BY item_id DESC
-    LIMIT 20" );
-
-$get_most_recent_items->execute();
-$most_recent_items = $get_most_recent_items->fetchAll( PDO::FETCH_ASSOC );
-$get_most_recent_items = NULL;
-$db = NULL;
+$recent_river_items = get_most_recent_items( $river_source_ids, 20 );
 
 $last_item_id = 1;
 $build_item_display = '';
 
-foreach ( $most_recent_items as $item ){
+foreach ( $recent_river_items as $river_item ){
     /*  Determine best way to display initial time data.
         TODO: Smarter way to handle time zone.
         First, subtract 28800 to make PST from UTC.
         F jS h:iA displays Month 00st 00:00AM type format.
      */
-    $item_publish_date = date( 'F jS h:iA \P\S\T', ( strtotime( $item[ 'publish_date' ] ) - 28800 ) );
+    $item_publish_date = date( 'F jS h:iA \P\S\T', ( strtotime( $river_item->publish_date ) - 28800 ) );
 
-    if ( $last_item_id < $item[ 'item_id' ] ){
-        $last_item_id = $item[ 'item_id' ];
+    if ( $last_item_id < $river_item->item_id ){
+        $last_item_id = $river_item->item_id;
     }
 
-    if ( 1 == $item[ 'river_source_id' ] ){
+    /*  TODO: replace with DB configuration for each source */
+    if ( 1 == $river_item->river_source_id ){
         $extra_class = 'ows';
-    }elseif ( 2 == $item[ 'river_source_id' ] ){
+    }elseif ( 2 == $river_item->river_source_id ){
         $extra_class = 'hacker_news';
-    }elseif ( 3 == $item[ 'river_source_id' ] ){
+    }elseif ( 3 == $river_item->river_source_id ){
         $extra_class = 'nyt';
-    }elseif ( 4 == $item[ 'river_source_id' ] ){
+    }elseif ( 4 == $river_item->river_source_id ){
         $extra_class = 'guardian';
     }
 
     $build_item_display .= '<div class="water ' . $extra_class . '">';
     $build_item_display .= '<div class="water_title">';
-    $build_item_display .= '<a href="' . $item[ 'item_url' ] . '">';
-    if ( $item[ 'item_title' ] ) {
-        $build_item_display .= $item[ 'item_title' ];
+    $build_item_display .= '<a href="' . $river_item->item_url . '">';
+
+    if ( $river_item->item_title ) {
+        $build_item_display .= $river_item->item_title;
     }else{
-        $build_item_display .= $item[ 'item_url' ];
+        $build_item_display .= $river_item->item_url;
     }
+
     $build_item_display .= '</a></div>';
     $build_item_display .= '<div class="water_published">' . $item_publish_date . '</div>';
     $build_item_display .= '<div class="water_description">';
-    if ( $item[ 'item_excerpt' ] ) {
-        $build_item_display .= '<p>' . $item[ 'item_excerpt' ] . '</p>';
-    }elseif ( $item[ 'body' ] ) {
-        $build_item_display .= '<p>' . $item[ 'body' ] . '</p>';
+    if ( $river_item->item_excerpt ) {
+        $build_item_display .= '<p>' . $river_item->item_excerpt . '</p>';
+    }elseif ( $river_item->body ) {
+        $build_item_display .= '<p>' . $river_item->body . '</p>';
     }
     $build_item_display .= '</div><div class="water_sub_title"><strong>Source:</strong> ';
-    $build_item_display .= $item[ 'feed_title' ] . ' | ' . $item[ 'feed_section' ] . '</div>';
-    $build_item_display .= '</div><div style="clear:left;margin-top:12px;height:10xp;"><br></div>
+    $build_item_display .= $river_item->feed_title . ' | ' . $river_item->feed_section . '</div>';
+    $build_item_display .= '</div><div style="clear:left;margin-top:12px;height:10px;"><br></div>
     ';
 
 }
