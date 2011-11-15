@@ -24,3 +24,17 @@ function get_recent_river_items( $river_source_ids = '1,2,3,4', $last_item_id = 
     return $recent_items;
     
 }
+
+function get_display_class( $river_source_id ){
+    /*  TODO: Should be a DB based config at some point. */
+    if ( 1 == $river_source_id ){
+        $extra_class = 'ows';
+    }elseif ( 2 == $river_source_id ){
+        $extra_class = 'hacker_news';
+    }elseif ( 3 == $river_source_id ){
+        $extra_class = 'nyt';
+    }elseif ( 4 == $river_source_id ){
+        $extra_class = 'guardian';
+    }
+    return $extra_class;
+}

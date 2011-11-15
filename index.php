@@ -28,18 +28,9 @@ foreach ( $recent_river_items as $river_item ){
         $last_item_id = $river_item->item_id;
     }
 
-    /*  TODO: replace with DB configuration for each source */
-    if ( 1 == $river_item->river_source_id ){
-        $extra_class = 'ows';
-    }elseif ( 2 == $river_item->river_source_id ){
-        $extra_class = 'hacker_news';
-    }elseif ( 3 == $river_item->river_source_id ){
-        $extra_class = 'nyt';
-    }elseif ( 4 == $river_item->river_source_id ){
-        $extra_class = 'guardian';
-    }
+    $extra_display_class = get_display_class( $river_item->river_source_id );
 
-    $build_item_display .= '<div class="water ' . $extra_class . '">';
+    $build_item_display .= '<div class="water ' . $extra_display_class . '">';
     $build_item_display .= '<div class="water_title">';
     $build_item_display .= '<a href="' . $river_item->item_url . '">';
 
