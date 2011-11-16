@@ -32,7 +32,7 @@ while ($continue == 1){
     $xml_response = curl_exec ( $ch );
     curl_close ( $ch );
 
-    /*  Only needed with Dave's feed to return valid JSON */
+    /*  Only needed with OWS feed to return valid JSON */
     $xml_response = substr( $xml_response, 18 );
     $xml_response = substr( $xml_response, 0, -1 );
 

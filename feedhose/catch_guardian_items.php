@@ -1,14 +1,21 @@
 <?php
 
-/*  Guardian UK API Call Information */
+/*  This script pulls the latest available data from the Guardian's Open Platform,
+    which is a really great service - http://www.guardian.co.uk/open-platform
+
+    There aren't too many restrictions on what can be acccessed, but you do need an
+    API key. This is (a) free and (b) configured in includes/config.php
+
+    Currently we track a seed in a separate table called guard_seeds, but this will
+    probably change to be stored in the sources table. A seed is required for maximum
+    efficiency when using the API though. */
+
+/*  Load up the support. */
 require_once( dirname( dirname( __FILE__ ) ) . '/includes/config.php' );
 require_once( dirname( dirname( __FILE__ ) ) . '/includes/RiverItem.php' );
 require_once( dirname( dirname( __FILE__ ) ) . '/includes/functions.php' );
 
-$order_by = "oldest";
-$fields = "all";
-$format = "json";
-$feed_unique_prefix = "guard";
+$feed_unique_prefix = "guard"; // TODO: store in sources table
 
 /*  We'll run this script for a long time, so set some timing variables. */
 $start_seconds = time();
@@ -40,10 +47,6 @@ while ($continue == 1){
 
     $thedate = date('Y-m-d',strtotime("+1 hours"));
 
-    echo "Was given seed $old_seed <br> \n";
-    echo "Parsed to date $old_seed_date <br> \n";
-    echo "Parsed to old count $old_count and start page $start_page <br> \n";
-
     if ( $thedate > $old_seed_date ){
         $old_count = 0;
         $start_page = 1;
@@ -56,7 +59,7 @@ while ($continue == 1){
     while ( $start_page <= $total_pages ){
 
         $feed_url = "http://content.guardianapis.com/search?from-date=$thedate&to-date=$thedate&page=$start_page";
-        $feed_url .= "&order-by=$order_by&show-fields=$fields&format=$format&api-key=$guardian_api_key";
+        $feed_url .= "&order-by=oldest&show-fields=all&format=json&api-key=$guardian_api_key";
 
         $ch = curl_init();
         curl_setopt ( $ch, CURLOPT_URL, $feed_url );
