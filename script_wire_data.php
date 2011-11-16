@@ -5,6 +5,7 @@ $last_item_id = $_SESSION[ 'last_item_id' ];
 $river_source_ids = $_SESSION[ 'river_sources' ];
 
 if ( '' != $last_item_id && $last_item_id ){
+    require_once( dirname( __FILE__) . '/includes/config.php' );
     require_once( dirname( __FILE__) . '/includes/Database.php' );
     require_once( dirname( __FILE__) . '/includes/RiverItem.php' );
     require_once( dirname( __FILE__) . '/includes/functions.php' );
