@@ -1,12 +1,6 @@
 <?php
-/**
- * Created by JetBrains PhpStorm.
- * User: Jeremy
- * Date: 11/15/11
- * Time: 3:40 PM
- * To change this template use File | Settings | File Templates.
- */
- 
+/*  Inserts google analytics at the bottom of your river if you
+    have your google analytics ID set in includes/config.php */
 ?>
 <script type="text/javascript">
 
