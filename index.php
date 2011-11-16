@@ -35,7 +35,7 @@ foreach ( $recent_river_items as $river_item ){
 
     $build_item_display .= '<div class="water ' . $extra_display_class . '">';
     $build_item_display .= '<div class="water_title">';
-    $build_item_display .= '<a href="' . $river_item->item_url . '">';
+    $build_item_display .= '<a href="' . $river_item->item_url . '" target=_blank>';
 
     if ( $river_item->item_title ) {
         $build_item_display .= $river_item->item_title;
