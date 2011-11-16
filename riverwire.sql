@@ -1,10 +1,4 @@
---
--- Database: `riverwire`
---
--- --------------------------------------------------------
---
 -- Table structure for table `guard_seeds`
---
 
 CREATE TABLE IF NOT EXISTS `guard_seeds` (
   `seed_id` int(11) NOT NULL AUTO_INCREMENT,
@@ -12,10 +6,7 @@ CREATE TABLE IF NOT EXISTS `guard_seeds` (
   PRIMARY KEY (`seed_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
---
 -- Table structure for table `river_items`
---
 
 CREATE TABLE IF NOT EXISTS `river_items` (
   `item_id` int(11) NOT NULL AUTO_INCREMENT,
