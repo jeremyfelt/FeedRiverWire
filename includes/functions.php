@@ -1,10 +1,9 @@
 <?php
-/**
- * Created by JetBrains PhpStorm.
- * User: Jeremy
- * Date: 11/15/11
- * Time: 2:36 PM
- * To change this template use File | Settings | File Templates.
+
+/*
+ * Feed River Wire
+ * @author Jeremy Felt <jeremy.felt@gmail.com>
+ * @license MIT License - see license.txt
  */
 
 function db_connect(){
@@ -14,7 +13,7 @@ function db_connect(){
     return $database_connection;
 }
 
-function get_recent_river_items( $river_source_ids = '1,2,3,4', $last_item_id = 1, $limit = 20 ){
+function get_recent_river_items( $river_source_ids = '2,3,4', $last_item_id = 1, $limit = 20 ){
 
     $db = db_connect();
     $get_recent_items = $db->prepare( "SELECT item_id, river_source_id, item_url, item_title, item_excerpt,

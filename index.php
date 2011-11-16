@@ -1,5 +1,11 @@
 <?php
 
+/*
+ * Feed River Wire
+ * @author Jeremy Felt <jeremy.felt@gmail.com>
+ * @license MIT License - see license.txt
+ */
+
 require_once( dirname( __FILE__ ) . '/includes/config.php' );
 require_once( dirname( __FILE__ ) . '/includes/RiverItem.php' );
 require_once( dirname( __FILE__ ) . '/includes/functions.php' );

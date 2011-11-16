@@ -1,5 +1,11 @@
 <?php
 
+/*
+ * Feed River Wire
+ * @author Jeremy Felt <jeremy.felt@gmail.com>
+ * @license MIT License - see license.txt
+ */
+
 /*  This script pulls the latest data from the New York Times API,
     which needs only an API key to get started. It does not provide
     full text of the articles, and in no way side steps the paywall,

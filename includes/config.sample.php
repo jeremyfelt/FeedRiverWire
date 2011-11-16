@@ -1,5 +1,11 @@
 <?php
 
+/*
+ * Feed River Wire
+ * @author Jeremy Felt <jeremy.felt@gmail.com>
+ * @license MIT License - see license.txt
+ */
+
 /*  MySQL configuration. Database must be created first, obviously.
     SQL file is included to help build. */
 define( 'DB_HOST', 'localhost' );
@@ -14,6 +20,7 @@ $nyt_api_key = '';
 /*  Other config info. */
 $site_title = 'Feed River Wire';
 $script_max_run_time = 3420; // Scripts will run for 3420 seconds by default.
+$river_source_ids = '2,3,4'; // Default source IDs. We'll handle this better.
 
 /*  Extras configuration. Setting these loads files from extras/ */
 $google_analytics_id = NULL; /* UA-XXXXXXXX-X */

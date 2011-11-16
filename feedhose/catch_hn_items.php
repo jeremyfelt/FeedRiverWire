@@ -1,5 +1,11 @@
 <?php
 
+/*
+ * Feed River Wire
+ * @author Jeremy Felt <jeremy.felt@gmail.com>
+ * @license MIT License - see license.txt
+ */
+
 /*  This script pulls the latest data from Ronnie Roller's Hacker
     News API. It's graciously offered to the world without any kind
     of API key or anything. Just a wonderful JSON feed hanging out

@@ -1,8 +1,9 @@
 <?php
-/**
- * User: Jeremy
- * Date: 11/15/11
- * Time: 2:43 PM
+
+/*
+ * Feed River Wire
+ * @author Jeremy Felt <jeremy.felt@gmail.com>
+ * @license MIT License - see license.txt
  */
  
 class RiverItem {

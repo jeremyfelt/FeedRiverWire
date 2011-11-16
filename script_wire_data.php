@@ -1,5 +1,11 @@
 <?php
 
+/*
+ * Feed River Wire
+ * @author Jeremy Felt <jeremy.felt@gmail.com>
+ * @license MIT License - see license.txt
+ */
+
 session_start();
 $last_item_id = $_SESSION[ 'last_item_id' ];
 $river_source_ids = $_SESSION[ 'river_sources' ];

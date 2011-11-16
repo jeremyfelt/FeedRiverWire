@@ -1,5 +1,11 @@
 <?php
 
+/*
+ * Feed River Wire
+ * @author Jeremy Felt <jeremy.felt@gmail.com>
+ * @license MIT License - see license.txt
+ */
+
 /*  This script pulls the latest available data from the Guardian's Open Platform,
     which is a really great service - http://www.guardian.co.uk/open-platform
 

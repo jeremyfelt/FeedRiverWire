@@ -1,4 +1,11 @@
 <?php
+
+/*
+ * Feed River Wire
+ * @author Jeremy Felt <jeremy.felt@gmail.com>
+ * @license MIT License - see license.txt
+ */
+
 /*  Inserts Google Analytics at the bottom of your river if you
     have added your Google Analytics ID to includes/config.php */
 ?>

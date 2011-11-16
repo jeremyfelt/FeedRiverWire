@@ -1,5 +1,11 @@
 <?php
 
+/*
+ * Feed River Wire
+ * @author Jeremy Felt <jeremy.felt@gmail.com>
+ * @license MIT License - see license.txt
+ */
+
 /*  Adds a nice little GitHub banner to the top right of the screen, allowing visitors
     to fork their own copy. You can get this to stop displaying by changing a config
     option in includes/config.php */
