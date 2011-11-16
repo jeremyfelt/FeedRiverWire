@@ -19,7 +19,7 @@ while ($continue == 1){
     $current_seconds = time();
     $total_seconds = ($current_seconds - $start_seconds);
 
-    if ( 3420 <= $total_seconds ) {
+    if ( $script_max_run_time <= $total_seconds ) {
         /*  This script has now been running for 3 hours and 58 minutes. Kill it for a bit. */
         die();
     }

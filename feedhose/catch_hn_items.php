@@ -1,11 +1,11 @@
 <?php
 
-$feed_url = "http://api.ihackernews.com/new";
-$feed_unique_prefix = 'hn';
-
 require_once( dirname( dirname( __FILE__ ) ) . '/includes/config.php' );
 require_once( dirname( dirname( __FILE__ ) ) . '/includes/RiverItem.php' );
 require_once( dirname( dirname( __FILE__ ) ) . '/includes/functions.php' );
+
+$feed_url = "http://api.ihackernews.com/new";
+$feed_unique_prefix = 'hn';
 
 /*  We'll run this script for a long time, so set some timing variables. */
 $start_seconds = time();
@@ -16,7 +16,7 @@ while ($continue == 1){
     $current_seconds = time();
     $total_seconds = ($current_seconds - $start_seconds);
 
-    if ( 3420 <= $total_seconds ) {
+    if ( $script_max_run_time <= $total_seconds ) {
         /*  This script has now been running for 3 hours and 58 minutes. Kill it for a bit. */
         die();
     }
