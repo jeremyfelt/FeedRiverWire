@@ -1,6 +1,6 @@
 <?php
-/*  Inserts google analytics at the bottom of your river if you
-    have your google analytics ID set in includes/config.php */
+/*  Inserts Google Analytics at the bottom of your river if you
+    have added your Google Analytics ID to includes/config.php */
 ?>
 <script type="text/javascript">
   var _gaq = _gaq || [];
