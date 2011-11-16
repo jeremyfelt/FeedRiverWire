@@ -73,5 +73,3 @@ while ( $script_max_run_time > ( time() - $start_seconds ) ){
     sleep( 120 );
 
 }
-
-?>
