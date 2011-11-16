@@ -1,12 +1,11 @@
 <?php
 
-include 'api_config.php';
-$feed_url = "http://api.nytimes.com/svc/news/v3/content/all/all/.json?api-key=$nyt_api_key";
-$feed_unique_prefix = 'nyt';
-
 require_once( dirname( dirname( __FILE__ ) ) . '/includes/config.php' );
 require_once( dirname( dirname( __FILE__ ) ) . '/includes/RiverItem.php' );
 require_once( dirname( dirname( __FILE__ ) ) . '/includes/functions.php' );
+
+$feed_url = "http://api.nytimes.com/svc/news/v3/content/all/all/.json?api-key=$nyt_api_key";
+$feed_unique_prefix = 'nyt';
 
 /*  We'll run this script for a long time, so set some timing variables. */
 $start_seconds = time();
