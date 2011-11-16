@@ -10,10 +10,10 @@ $_SESSION[ 'last_item_id' ] = NULL;
 $river_source_ids = '1,2,3,4';
 /*  This is a hacky way to determine what sources we're looking at. */
 if ( ! $_SESSION[ 'river_sources' ] ) {
-    $river_source_ids = '1,2,3,4';
-}else{
-    $river_source_ids = $_SESSION[ 'river_sources' ];
+    $_SESSION[ 'river_sources' ] = '1,2,3,4';
 }
+
+$river_source_ids = $_SESSION[ 'river_sources' ];
 
 $recent_river_items = get_recent_river_items( $river_source_ids, 1, 20 );
 
