@@ -10,26 +10,15 @@
     probably change to be stored in the sources table. A seed is required for maximum
     efficiency when using the API though. */
 
-/*  Load up the support. */
+/*  Boot it up. Or something. */
 require_once( dirname( dirname( __FILE__ ) ) . '/includes/config.php' );
 require_once( dirname( dirname( __FILE__ ) ) . '/includes/RiverItem.php' );
 require_once( dirname( dirname( __FILE__ ) ) . '/includes/functions.php' );
 
 $feed_unique_prefix = "guard"; // TODO: store in sources table
+$start_seconds = time(); // This will feed into the loop below and help determine when to quit.
 
-/*  We'll run this script for a long time, so set some timing variables. */
-$start_seconds = time();
-$continue = 1;
-
-while ($continue == 1){
-
-    $current_seconds = time();
-    $total_seconds = ($current_seconds - $start_seconds);
-
-    if ( $script_max_run_time <= $total_seconds ) {
-        /*  This script has now been running for 3 hours and 58 minutes. Kill it for a bit. */
-        die();
-    }
+while ( $script_max_run_time > ( time() - $start_seconds ) ){
 
     $db = db_connect();
 
@@ -45,7 +34,7 @@ while ($continue == 1){
     $old_count = $remainder_seed[0];
     $start_page = $remainder_seed[1];
 
-    $thedate = date('Y-m-d',strtotime("+1 hours"));
+    $thedate = date( 'Y-m-d', strtotime( "+1 hours" ) );
 
     if ( $thedate > $old_seed_date ){
         $old_count = 0;

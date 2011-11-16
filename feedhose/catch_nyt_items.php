@@ -14,7 +14,7 @@ $continue = 1;
 while ($continue == 1){
 
     $current_seconds = time();
-    $total_seconds = ($current_seconds - $start_seconds);
+    $total_seconds = ( $current_seconds - $start_seconds );
 
     if ( $script_max_run_time <= $total_seconds ) {
         die();
