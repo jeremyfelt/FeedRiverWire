@@ -19,6 +19,7 @@ Configuration / Installation
 ----------------------------------
 
 DIY for sure, but shouldn't be too hard.
+
 + You'll need to make a **config.php** file based on config.sample.php in includes. This contains the MySQL DB config, API keys, and other general settings.
 + A database needs to be created in MySQL, and the tables in **riverwire.sql** should be added.
 + Cron should be setup to run **catch_guardian_items.php**, **catch_hn_items.php**, and **catch_nyt_items.php** on a regular basis.
