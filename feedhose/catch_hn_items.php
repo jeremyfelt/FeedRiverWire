@@ -1,5 +1,15 @@
 <?php
 
+/*  This script pulls the latest data from Ronnie Roller's Hacker
+    News API. It's graciously offered to the world without any kind
+    of API key or anything. Just a wonderful JSON feed hanging out
+    in the sky.
+
+    Right now we pull new articles as they come in. No fancy stuff
+    is done with ongoing discussion, popular items, etc... Could be
+    though. */
+
+/*  Load it up. Load it up. Let it begin. */
 require_once( dirname( dirname( __FILE__ ) ) . '/includes/config.php' );
 require_once( dirname( dirname( __FILE__ ) ) . '/includes/RiverItem.php' );
 require_once( dirname( dirname( __FILE__ ) ) . '/includes/functions.php' );
@@ -7,19 +17,9 @@ require_once( dirname( dirname( __FILE__ ) ) . '/includes/functions.php' );
 $feed_url = "http://api.ihackernews.com/new";
 $feed_unique_prefix = 'hn';
 
-/*  We'll run this script for a long time, so set some timing variables. */
 $start_seconds = time();
-$continue = 1;
 
-while ($continue == 1){
-
-    $current_seconds = time();
-    $total_seconds = ($current_seconds - $start_seconds);
-
-    if ( $script_max_run_time <= $total_seconds ) {
-        /*  This script has now been running for 3 hours and 58 minutes. Kill it for a bit. */
-        die();
-    }
+while ( $script_max_run_time > ( time() - $start_seconds ) ){
 
     $db = db_connect();
 
@@ -72,5 +72,3 @@ while ($continue == 1){
     sleep( 120 );
 
 }
-
-?>
