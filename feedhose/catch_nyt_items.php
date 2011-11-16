@@ -1,15 +1,23 @@
 <?php
 
+/*  This script pulls the latest data from the New York Times API,
+    which needs only an API key to get started. It does not provide
+    full text of the articles, and in no way side steps the paywall,
+    but it's still great for the headlines and excerpts.
+
+    In order for this script to work, you will need to add your
+    NYT API to the includes/config.php file. */
+
+/*  All the stuff we need, right. */
 require_once( dirname( dirname( __FILE__ ) ) . '/includes/config.php' );
 require_once( dirname( dirname( __FILE__ ) ) . '/includes/RiverItem.php' );
 require_once( dirname( dirname( __FILE__ ) ) . '/includes/functions.php' );
 
+
 $feed_url = "http://api.nytimes.com/svc/news/v3/content/all/all/.json?api-key=$nyt_api_key";
 $feed_unique_prefix = 'nyt';
 
-/*  We'll run this script for a long time, so set some timing variables. */
 $start_seconds = time();
-$continue = 1;
 
 while ( $script_max_run_time > ( time() - $start_seconds ) ){
 
