@@ -16,7 +16,7 @@ if ( 1 == abs( $_GET[ 'option' ] ) ){
     }
 }elseif ( 3 == abs( $_GET[ 'option' ] ) ){
     /*  We're using all sources. */
-    $_SESSION[ 'river_sources' ] = "1,2,3,4";
+    $_SESSION[ 'river_sources' ] = "1,2,3";
 }
 
 session_write_close();

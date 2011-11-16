@@ -7,10 +7,9 @@ require_once( dirname( __FILE__ ) . '/includes/functions.php' );
 session_start();
 $_SESSION[ 'last_item_id' ] = NULL;
 
-$river_source_ids = '1,2,3,4';
 /*  This is a hacky way to determine what sources we're looking at. */
 if ( ! $_SESSION[ 'river_sources' ] ) {
-    $_SESSION[ 'river_sources' ] = '1,2,3,4';
+    $_SESSION[ 'river_sources' ] = '1,2,3';
 }
 
 $river_source_ids = $_SESSION[ 'river_sources' ];
@@ -78,14 +77,13 @@ session_write_close();
 <div class="infobox">An expirement by <a href="http://www.jeremyfelt.com">Jeremy Felt</a>.
 Each column will update with any new headlines every 3 seconds. Stick around for a bit to see the river flow. Built on
     the <a href="http://developer.nytimes.com/docs">New York
-    Times API</a>, the <a href="http://www.guardian.co.uk/open-platform">Guardian's Open Platform</a>,
+    Times API</a>, the <a href="http://www.guardian.co.uk/open-platform">Guardian's Open Platform</a>, and
     <a href="http://ronnieroller.com/">Ronnie Roller's</a> <a href="http://api.ihackernews.com/">Hacker News
-API</a> and Dave Winer's <a href="http://scripting.com/stories/2011/10/15/tappingIntoTheOccupyNewsFl.html">Occupy news flow</a>.</div>
+    API</a>.</div>
 <div class="infobox" style="max-width:840px;"><b>Sources:</b> <a href="set_source.php?option=3">All</a> 
 | NY Times <a href="set_source.php?option=1&add_source_id=3">replace</a> or <a href="set_source.php?option=2&add_source_id=3">add</a>
 | Guardian <a href="set_source.php?option=1&add_source_id=4">replace</a> or <a href="set_source.php?option=2&add_source_id=4">add</a>
 | Hacker News <a href="set_source.php?option=1&add_source_id=2">replace</a> or <a href="set_source.php?option=2&add_source_id=2">add</a>
-| Occupy Web <a href="set_source.php?option=1&add_source_id=1">replace</a> or <a href="set_source.php?option=2&add_source_id=1">add</a>
 </div>
 <div class="rivers">
     <div class="big_rivers">
