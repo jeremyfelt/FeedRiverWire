@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS `guard_seeds` (
   `seed_id` int(11) NOT NULL AUTO_INCREMENT,
   `seed` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
   PRIMARY KEY (`seed_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=61498 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 --
@@ -39,4 +39,4 @@ CREATE TABLE IF NOT EXISTS `river_items` (
   KEY `capture_date` (`capture_date`),
   KEY `river_source_id` (`river_source_id`),
   KEY `publish_date` (`publish_date`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1237 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
