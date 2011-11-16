@@ -9,7 +9,6 @@ if ( '' != $last_item_id && $last_item_id ){
     require_once( dirname( __FILE__) . '/includes/RiverItem.php' );
     require_once( dirname( __FILE__) . '/includes/functions.php' );
 
-    echo $river_source_ids;
     $recent_river_items = get_recent_river_items( $river_source_ids, $last_item_id );
 
     $build_item_display = '';
