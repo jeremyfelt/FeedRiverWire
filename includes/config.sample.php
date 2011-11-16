@@ -1,6 +1,7 @@
 <?php
 
-/*  MySQL configuration. Database must be created first, obviously. */
+/*  MySQL configuration. Database must be created first, obviously.
+    SQL file is included to help build. */
 define( 'DB_HOST', 'localhost' );
 define( 'DB_NAME', 'riverwire' );
 define( 'DB_USER', 'database_username' );
