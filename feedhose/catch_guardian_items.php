@@ -2,7 +2,6 @@
 
 /*  Guardian UK API Call Information */
 require_once( dirname( dirname( __FILE__ ) ) . '/includes/config.php' );
-require_once( dirname( dirname( __FILE__ ) ) . '/includes/Database.php' );
 require_once( dirname( dirname( __FILE__ ) ) . '/includes/RiverItem.php' );
 require_once( dirname( dirname( __FILE__ ) ) . '/includes/functions.php' );
 

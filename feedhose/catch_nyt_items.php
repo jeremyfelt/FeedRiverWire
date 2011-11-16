@@ -5,7 +5,6 @@ $feed_url = "http://api.nytimes.com/svc/news/v3/content/all/all/.json?api-key=$n
 $feed_unique_prefix = 'nyt';
 
 require_once( dirname( dirname( __FILE__ ) ) . '/includes/config.php' );
-require_once( dirname( dirname( __FILE__ ) ) . '/includes/Database.php' );
 require_once( dirname( dirname( __FILE__ ) ) . '/includes/RiverItem.php' );
 require_once( dirname( dirname( __FILE__ ) ) . '/includes/functions.php' );
 
