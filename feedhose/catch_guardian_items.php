@@ -14,7 +14,7 @@
 require_once( dirname( dirname( __FILE__ ) ) . '/includes/config.php' );
 require_once( dirname( dirname( __FILE__ ) ) . '/includes/RiverItem.php' );
 require_once( dirname( dirname( __FILE__ ) ) . '/includes/functions.php' );
-
+$feed_site = 'http://content.guardianapis.com/search';
 $feed_unique_prefix = "guard"; // TODO: store in sources table
 $start_seconds = time(); // This will feed into the loop below and help determine when to quit.
 
@@ -47,8 +47,8 @@ while ( $script_max_run_time > ( time() - $start_seconds ) ){
 
     while ( $start_page <= $total_pages ){
 
-        $feed_url = "http://content.guardianapis.com/search?from-date=$thedate&to-date=$thedate&page=$start_page";
-        $feed_url .= "&order-by=oldest&show-fields=all&format=json&api-key=$guardian_api_key";
+        $feed_url = sprintf( '%1$s?from-date=%2$s&to-date=%2$s&page=%3$d&order-by=oldest&show-fields=all&format=json&api-key=%4$s',
+                             $feed_site, $thedate, $start_page, $guardian_api_key );
 
         $ch = curl_init();
         curl_setopt ( $ch, CURLOPT_URL, $feed_url );
