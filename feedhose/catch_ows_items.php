@@ -3,7 +3,10 @@
 $feed_url = "http://static.scripting.com/houston/rivers/occupy/River3.js";
 $feed_unique_prefix = 'ows';
 
-require_once( $_SERVER['DOCUMENT_ROOT'] . '/includes/Database.php' );
+require_once( dirname( dirname( __FILE__ ) ) . '/includes/config.php' );
+require_once( dirname( dirname( __FILE__ ) ) . '/includes/Database.php' );
+require_once( dirname( dirname( __FILE__ ) ) . '/includes/RiverItem.php' );
+require_once( dirname( dirname( __FILE__ ) ) . '/includes/functions.php' );
 
 /*  We'll run this script for a long time, so set some timing variables. */
 $start_seconds = time();

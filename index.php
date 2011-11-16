@@ -1,16 +1,16 @@
 <?php
 
+require_once( dirname( __FILE__ ) . '/includes/config.php' );
+require_once( dirname( __FILE__ ) . '/includes/Database.php' );
+require_once( dirname( __FILE__ ) . '/includes/RiverItem.php' );
+require_once( dirname( __FILE__ ) . '/includes/functions.php' );
+
 session_start();
 $_SESSION[ 'last_item_id' ] = NULL;
 
 /*  This is a hacky way to determine what sources we're looking at. */
 if ( $_SESSION[ 'river_sources' ] )
     $river_source_ids = $_SESSION[ 'river_sources' ];
-
-require_once( dirname( __FILE__ ) . '/includes/config.php' );
-require_once( dirname( __FILE__ ) . '/includes/Database.php' );
-require_once( dirname( __FILE__ ) . '/includes/RiverItem.php' );
-require_once( dirname( __FILE__ ) . '/includes/functions.php' );
 
 $recent_river_items = get_recent_river_items( $river_source_ids, 20 );
 

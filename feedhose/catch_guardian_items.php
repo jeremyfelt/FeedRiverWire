@@ -1,14 +1,15 @@
 <?php
 
 /*  Guardian UK API Call Information */
-include 'api_config.php';
+require_once( dirname( dirname( __FILE__ ) ) . '/includes/config.php' );
+require_once( dirname( dirname( __FILE__ ) ) . '/includes/Database.php' );
+require_once( dirname( dirname( __FILE__ ) ) . '/includes/RiverItem.php' );
+require_once( dirname( dirname( __FILE__ ) ) . '/includes/functions.php' );
 
 $order_by = "oldest";
 $fields = "all";
 $format = "json";
-
 $feed_unique_prefix = "guard";
-require_once($_SERVER['DOCUMENT_ROOT'] . '/includes/Database.php');
 
 /*  We'll run this script for a long time, so set some timing variables. */
 $start_seconds = time();
