@@ -6,11 +6,12 @@ define( 'DB_NAME', 'riverwire' );
 define( 'DB_USER', 'database_username' );
 define( 'DB_PASS', 'database_pass' );
 
-/*  API Information. Visit the Guardian and NY Times for specifics. */
+/*  API Information. Visit the Guardian UK Open Platform and NY Times API sites for specifics. */
 $guardian_api_key = '';
 $nyt_api_key = '';
 
 /*  Other config info. */
+$site_title = 'Feed River Wire';
 $script_max_run_time = 3420; // Scripts will run for 3420 seconds by default.
 
 /*  Extras configuration. Setting these loads files from extras/ */
