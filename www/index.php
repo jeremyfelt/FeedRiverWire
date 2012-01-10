@@ -6,9 +6,9 @@
  * @license MIT License - see license.txt
  */
 
-require_once( dirname( __FILE__ ) . '/includes/config.php' );
-require_once( dirname( __FILE__ ) . '/includes/RiverItem.php' );
-require_once( dirname( __FILE__ ) . '/includes/functions.php' );
+require_once( dirname ( dirname( __FILE__ ) ) . '/includes/config.php' );
+require_once( dirname ( dirname( __FILE__ ) ) . '/includes/RiverItem.php');
+require_once( dirname ( dirname( __FILE__ ) ) . '/includes/functions.php');
 
 session_start();
 $_SESSION[ 'last_item_id' ] = NULL;
@@ -92,7 +92,8 @@ function loadwires(){
 }
 setInterval(loadwires,10000);
 </script>
-<?php if ( $google_analytics_id ) include dirname( __FILE__ ) . '/extras/google_analytics.php'; ?>
-<?php if ( $github_fork_display ) include dirname( __FILE__ ) . '/extras/forkme_code.php'; ?>
+<?php if ( $google_analytics_id ) include dirname( dirname( __FILE__ ) ) . '/extras/google_analytics.php'; ?>
+<?php if ( $github_fork_display ) include dirname( dirname( __FILE__ ) ) . '/extras/forkme_code.php'; ?>
+<?php if ( $piwik_display ) include dirname ( dirname ( __FILE__ ) ) . '/extras/piwik_analytics.php'; ?>
 </body>
 </html>
