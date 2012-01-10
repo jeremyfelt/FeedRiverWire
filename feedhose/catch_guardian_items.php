@@ -42,7 +42,7 @@ while ( $script_max_run_time > ( time() - $start_seconds ) ){
 
     $thedate = date( 'Y-m-d', strtotime( "+1 hours" ) );
 
-    if ( $thedate > $old_seed_date ){
+    if ( $thedate > $old_seed_date || '' == $start_page ){
         $old_count = 0;
         $start_page = 1;
     }
