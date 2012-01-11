@@ -63,7 +63,7 @@ function add_hn_items( $hn_data ){
             $this_item_publication = "Hacker News";
         }
         $this_discussion_url = "http://news.ycombinator.com/item?id=" . $item->id;
-        $this_item_id = $feed_unique_prefix . '_' . $item->id;
+        $this_item_id = 'hn_' . $item->id;
 
         $item_update_query = $db->prepare( "INSERT INTO river_items ( river_source_id, feed_item_id, item_url,
             item_title, item_author, permalink, publish_date, feed_section, feed_title, capture_date)
@@ -97,7 +97,7 @@ function add_nyt_items( $nyt_data ){
     $capture_date = date( 'Y-m-d H:i:s' );
 
     foreach ( $decoded_data->results as $item ){
-        $this_item_id = $feed_unique_prefix . '_' . md5( $item->url );
+        $this_item_id = 'nyt_' . md5( $item->url );
         if ( "by" == strtolower( substr( $item->byline, 0, 2 ) ) ){
             $this_item_author = trim( substr( $item->byline, 2 ) );
         }else{
