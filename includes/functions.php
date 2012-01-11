@@ -101,7 +101,7 @@ function add_nyt_items( $nyt_data ){
 
     $capture_date = date( 'Y-m-d H:i:s' );
     $db = db_connect();
-    
+
     foreach ( $decoded_data->results as $item ){
         $this_item_id = 'nyt_' . md5( $item->url );
         if ( "by" == strtolower( substr( $item->byline, 0, 2 ) ) ){
