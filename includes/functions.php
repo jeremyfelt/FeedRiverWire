@@ -47,10 +47,13 @@ function get_display_class( $river_source_id ){
 
 function add_hn_items( $hn_data ){
 
-    $db = db_connect();
-
     $decoded_data = json_decode( $hn_data );
+
+    if ( ! $decoded_data->items )
+        return;
+
     $capture_date = date( 'Y-m-d H:i:s' );
+    $db = db_connect();
 
     foreach ( $decoded_data->items as $item ) {
         if ( "http" != substr( $item->url, 0, 4 ) ){
@@ -91,11 +94,14 @@ function add_hn_items( $hn_data ){
 
 function add_nyt_items( $nyt_data ){
 
-    $db = db_connect();
-
     $decoded_data = json_decode( $nyt_data );
-    $capture_date = date( 'Y-m-d H:i:s' );
 
+    if ( ! $decoded_data->results )
+        return;
+
+    $capture_date = date( 'Y-m-d H:i:s' );
+    $db = db_connect();
+    
     foreach ( $decoded_data->results as $item ){
         $this_item_id = 'nyt_' . md5( $item->url );
         if ( "by" == strtolower( substr( $item->byline, 0, 2 ) ) ){
